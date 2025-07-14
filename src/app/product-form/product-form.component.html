@@ -1,0 +1,93 @@
+<div class="form-container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" formControlName="productName" />
+      <div
+        *ngIf="
+          productForm.get('productName')?.hasError('required') &&
+          productForm.get('productName')?.touched
+        "
+        class="error"
+      >
+        Product is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="receiver">Quantity:</label>
+      <input type="text" id="quantity" formControlName="quantity" />
+      <div
+        *ngIf="
+          productForm.get('quantity')?.hasError('required') &&
+          productForm.get('quantity')?.touched
+        "
+        class="error"
+      >
+        Quantity is required.
+      </div>
+      <div
+        *ngIf="
+          productForm.get('quantity')?.hasError('min') &&
+          productForm.get('quantity')?.touched
+        "
+        class="error"
+      >
+        Quantity is not valid
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" formControlName="destination" />
+      <div
+        *ngIf="
+          productForm.get('destination')?.hasError('required') &&
+          productForm.get('destination')?.touched
+        "
+        class="error"
+      >
+        Destination is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="condition">Status:</label>
+      <select formControlName="status">
+        <option *ngFor="let option of productionStatus" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="expectedDelivery">Production Date</label>
+      <input
+        type="text"
+        id="productionDate"
+        formControlName="productionDate"
+      />
+      <div
+        *ngIf="
+          productForm.get('productionDate')?.hasError('required') &&
+          productForm.get('productionDate')?.touched
+        "
+        class="error"
+      >
+        Production Date is required.
+      </div>
+      <div
+        *ngIf="
+          productForm.controls['productionDate'].invalid &&
+          (productForm.controls['productionDate'].dirty ||
+            productForm.controls['productionDate'].touched)
+        "
+        class="error"
+      >
+        Production Date must be in YYYY-MM-DD format.
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

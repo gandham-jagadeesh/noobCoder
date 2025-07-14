@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "Run App",
+          "command": "npm run start",
+          "type": "shell"
+      },
+      {
+          "label": "Submit App",
+          "command": "./resolv.sh",
+          "type": "shell"
+      }
+  ]
+}

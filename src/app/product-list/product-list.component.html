@@ -1,0 +1,20 @@
+<button (click)="addNewProduct = !addNewProduct">Add New Product</button>
+<div class="search-bar" *ngIf="(products$ | async)?.length">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search by ID or Product Name"
+    (input)="searchProducts($event)"
+  />
+</div>
+<div class="product-list-container">
+  <h2>Products</h2>
+
+  <div *ngFor="let product of filterdProducts$ | async">
+    <app-product-details [product]="product"></app-product-details>
+  </div>
+</div>
+
+<div *ngIf="addNewProduct">
+  <app-product-form (addProduct)="addProduct($event)"></app-product-form>
+</div>

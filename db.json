@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "Smartphone",
+      "quantity": 500,
+      "productionDate": "2023-09-01",
+      "status": "In Assembly",
+      "destination": "Retailer A"
+    },
+    {
+      "id": 2,
+      "productName": "Laptop",
+      "quantity": 300,
+      "productionDate": "2023-08-25",
+      "status": "Shipped",
+      "destination": "Retailer B"
+    }
+   
+  ]
+}
